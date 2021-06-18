@@ -6,17 +6,29 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card/card.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
+import { NewroutingComponent } from './newrouting/newrouting.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRouters: Routes = [
+  { path: '', component: CardComponent},
+  { path: 'newrouting', component: NewroutingComponent},
+  { path: '**', component: NotFoundComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    FormComponent
+    FormComponent,
+    NewroutingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, 
+    RouterModule.forRoot(appRouters)
   ],
   providers: [],
   bootstrap: [AppComponent]
